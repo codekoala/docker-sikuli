@@ -19,6 +19,20 @@ add a ``-r relative/path/to/test.sikuli``.
 
     docker run -it --rm -v $(pwd):/code -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY codekoala/sikuli -r test.sikuli
 
+Simplify
+--------
+
+You can simplify this quite a bit if you turn this into an alias. For example:
+
+    alias sikuli='docker run -it --rm -v `pwd`:/code -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY codekoala/sikuli '
+
+You can put this alias in your ``~/.bashrc`` or ``~/.zshrc``, depending on
+which shell you use. Note the use of single quotes instead of double quotes, as
+well as the trailing space inside of the alias definition. The single quotes
+will make it so things like ``pwd`` are evaluated when the alias is invoked
+rather than when it's defined. The space at the end allows us to pass
+additional arguments to our container, such as ``sikuli -r test.sikuli``.
+
 Troubleshooting
 ---------------
 
