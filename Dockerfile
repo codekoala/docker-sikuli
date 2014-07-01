@@ -7,5 +7,5 @@ RUN apt-get clean
 # See: https://bugs.launchpad.net/ubuntu/+source/sikuli/+bug/1313398
 ADD sikuli-ide /usr/bin/
 
-WORKDIR /code
+WORKDIR /root
 ENTRYPOINT ["/usr/bin/sikuli-ide"]

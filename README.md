@@ -4,9 +4,9 @@ Sikuli In a Container
 This container should allow you to quickly and easily get Sikuli working on any
 Linux system that is a Docker host.
 
-    docker run -it --rm -v $(pwd):/code -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY codekoala/sikuli
+    docker run -it --rm -v $(pwd):/root -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY codekoala/sikuli
 
-In this command, we're mapping the current directory to ``/code`` in the
+In this command, we're mapping the current directory to ``/root`` in the
 container. This is how we can share our existing Sikuli tests with a new
 container, or save new tests that can be reused later.
 
@@ -17,14 +17,14 @@ variable (``DISPLAY``) to point to this socket in the container.
 If you simply wish to run an existing Sikuli script, use the command above and
 add a ``-r relative/path/to/test.sikuli``.
 
-    docker run -it --rm -v $(pwd):/code -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY codekoala/sikuli -r test.sikuli
+    docker run -it --rm -v $(pwd):/root -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY codekoala/sikuli -r test.sikuli
 
 Simplify
 --------
 
 You can simplify this quite a bit if you turn this into an alias. For example:
 
-    alias sikuli='docker run -it --rm -v `pwd`:/code -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY codekoala/sikuli '
+    alias sikuli='docker run -it --rm -v `pwd`:/root -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY codekoala/sikuli '
 
 You can put this alias in your ``~/.bashrc`` or ``~/.zshrc``, depending on
 which shell you use. Note the use of single quotes instead of double quotes, as
